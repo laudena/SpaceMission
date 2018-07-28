@@ -2,8 +2,8 @@ package com.company;
 
 public class Item {
     private String name;
-    private int weight;
-    public Item(String name, int weight){
+    private double weight;
+    public Item(String name, double weight){
         this.setName(name);
         this.setWeight(weight);
     }
@@ -16,11 +16,11 @@ public class Item {
         this.name = name;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 }

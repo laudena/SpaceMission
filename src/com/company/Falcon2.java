@@ -19,24 +19,24 @@ public class Falcon2 extends Rocket {
     @Override
     public boolean launch() {
         Random rand = new Random();
-        double res = rand.nextLong();
+        double res = rand.nextDouble();
         //Chance of launch explosion = 4% * (cargo carried / cargo limit)
-        double explosionProb = 0.04 * this.getCargoWeight() / this.getCargoWeightUsage();
+        double explosionProb = 0.04 * this.getCargoWeightUsage();
         if (res < explosionProb)
-            return true;
-        else
             return false;
+        else
+            return true;
     }
 
     @Override
     public boolean land() {
         Random rand = new Random();
-        double res = rand.nextLong();
+        double res = rand.nextDouble();
         //Chance of launch explosion = 8% * (cargo carried / cargo limit)
-        double explosionProb = 0.08 * this.getCargoWeight() / this.getCargoWeightUsage();
+        double explosionProb = 0.08 * this.getCargoWeightUsage();
         if (res < explosionProb)
-            return true;
-        else
             return false;
+        else
+            return true;
     }
 }

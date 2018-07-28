@@ -1,6 +1,4 @@
 package com.company;
-
-
 import java.util.Random;
 
 /*
@@ -17,24 +15,24 @@ public class Falcon1 extends Rocket {
     @Override
     public boolean launch() {
         Random rand = new Random();
-        double res = rand.nextLong();
+        double res = rand.nextDouble();
         //Chance of launch explosion = 5% * (cargo carried / cargo limit)
-        double explosionProb = 0.05 * this.getCargoWeight() / this.getCargoWeightUsage();
+        double explosionProb = 0.05 * this.getCargoWeightUsage();
         if (res < explosionProb)
-            return true;
-        else
             return false;
+        else
+            return true;
     }
 
     @Override
     public boolean land() {
         Random rand = new Random();
-        double res = rand.nextLong();
+        double res = rand.nextDouble();
         //Chance of launch explosion = 5% * (cargo carried / cargo limit)
-        double explosionProb = 0.01 * this.getCargoWeight() / this.getCargoWeightUsage();
+        double explosionProb = 0.01 * this.getCargoWeightUsage();
         if (res < explosionProb)
-            return true;
-        else
             return false;
+        else
+            return true;
     }
 }

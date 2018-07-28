@@ -2,6 +2,7 @@ package com.company;
 import java.util.*;
 
 public class Rocket implements ISpaceship {
+    private static int rocketNumner = 0;
     private double cost;
     private double ownWeight;
     private double maxWeight;
@@ -9,11 +10,17 @@ public class Rocket implements ISpaceship {
 
 
     public Rocket(double cost, double ownWeight, double maxWeight){
+        rocketNumner++;
         this.cost = cost;
         this.ownWeight = ownWeight;
         this.maxWeight = maxWeight;
         this.cargo.clear();
     }
+
+    public static int getRocketNumner() {
+        return rocketNumner;
+    }
+
     public boolean launch() {
         return true;
     }
@@ -27,13 +34,8 @@ public class Rocket implements ISpaceship {
     }
 
     public boolean carry(Item item) {
-        if (checkExtraWeight(item.getWeight())) {
             this.cargo.add(item);
             return true;
-        }
-        else{
-            return false;
-        }
     }
     public List<Item> getCargo() {
         return cargo;
@@ -48,14 +50,21 @@ public class Rocket implements ISpaceship {
     }
     private boolean checkExtraWeight(double weight)
     {
-        if (weight + this.getCargoWeight() + this.ownWeight <= this.maxWeight)
+        boolean result = weight + this.getCargoWeight() + this.ownWeight <= this.maxWeight;
+        //System.out.println( "w:" + weight + " c:"+ this.getCargoWeight() + " own:" + this.ownWeight + " max:" +this.maxWeight + " RESULT:" + result);
+        if (result)
             return true;
         else
-            return true;
+            return false;
     }
     protected double getCargoWeightUsage()
     {
+        //System.out.println("usage:" + (int) (100 * this.getCargoWeight() / (this.maxWeight - this.ownWeight)));
         return this.getCargoWeight() / (this.maxWeight - this.ownWeight);
 
+    }
+
+    public double getCost() {
+        return cost;
     }
 }
