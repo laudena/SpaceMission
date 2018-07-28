@@ -29,7 +29,7 @@ public class Simulation {
         return output;
     }
 
-    public ArrayList<Rocket> loadFalcon1Rockets(ArrayList<Item> cargoItems) {
+    public ArrayList<Rocket> loadFalcon_1_Rockets(ArrayList<Item> cargoItems) {
         ArrayList<Rocket> spaceShips = new ArrayList<>();
         Rocket rocket = new Falcon1();
         for (Item item : cargoItems) {
@@ -45,7 +45,7 @@ public class Simulation {
         // System.out.println("loaded rocket #" + rocket.getRocketNumner());
         return spaceShips;
     }
-    public ArrayList<Rocket> loadFalcon2Rockets(ArrayList<Item> cargoItems) {
+    public ArrayList<Rocket> loadFalcon_2_Rockets(ArrayList<Item> cargoItems) {
         ArrayList<Rocket> spaceShips = new ArrayList<>();
         Rocket rocket = new Falcon2();
         for (Item item : cargoItems) {
